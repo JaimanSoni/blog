@@ -57,7 +57,8 @@ def updateBlog(request, id):
 
         blog.title = title
         blog.description = description
-        blog.image = image
+        if image is not None:
+            blog.image = image
         blog.save()
         return redirect("/your-blogs")
     return render(request, "blogFiles/updateBlog.html", context={"blog": blog})
