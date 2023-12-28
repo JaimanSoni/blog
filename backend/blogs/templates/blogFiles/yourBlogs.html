@@ -1,0 +1,32 @@
+{% extends "base_blog.html" %}
+{% block start %}
+
+
+<div class="container"> 
+    <center>
+        {% if blogs|length == 0 %}
+        <h1 class="my-3">You have not created any blogs yet!!</h1>
+        {% else %}
+        <h1 class="my-3">These are the blogs created by you</h1>
+        {% endif %}
+    </center>
+        {% for blog in blogs reversed %}
+        <div class="card my-4 p-3" style="width: 80rem;">
+            <img class="card-img-top mx-auto" src="media/{{blog.image}}" alt="Card image cap" style="height:500px; width:70rem;">
+            <div class="card-body">
+                <h2 class="card-title m-3">{{blog.title}}</h2>
+                <p class="card-text h5 m-3">{{blog.description|slice:400}}...</p>
+                <form class="container" method = "GET" action="your-blogs/{{blog.id}}"style="display:inline;">   
+                <button type="submit" class="btn btn-success">Open Blog</button>                    
+                </form>
+                <form class="container" method = "GET" action="edit-blog/{{blog.id}}" style="display:inline;">   
+                <button type="submit" class="btn btn-primary">Edit Blog</button>                    
+                </form>
+                <form class="container" method = "GET" action="delete-blog/{{blog.id}}" style="display:inline;">   
+                <button type="submit" class="btn btn-danger">Delete Blog</button>                    
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock  %}

@@ -1,0 +1,20 @@
+{% extends "base_blog.html" %}
+{% block start %}
+
+
+<div class="container"> 
+    <div class="mx-auto" style=" margin-top: 80px; width:67rem; height:12rem;">
+        <h1 class="mx-auto mb-4"> {{blog.title}} </h1>
+        <span style="background-color: {{color}}; border: 1px solid black; border-radius:50%; text-align: center; padding:4px; font-size: 20px; display:inline-block; width:40px; height:40px;">{{user.first_name|slice:1}} </span><p style="display:flex; margin-left:55px; margin-top:-40px;font-size:14px; line-height:20px;">{{user.first_name}} {{user.last_name}} <br> {{blog.date_created}}</p> 
+
+    </div>
+    <img class="card-img-top mx-auto" src="/media/{{blog.image}}" alt="Card image cap" style="height:500px; width:80rem;">
+    <div class="mx-auto mb-3" style=" margin-bottom:50px; margin-top: 80px; width:67rem; height:12rem;">
+        <p class="" style="font-size:25px;">
+            {{blog.description}}
+        </p>
+    </div>
+    <div class="mx-auto mb-3" style=" margin-bottom:50px; margin-top: 80px; width:67rem; height:12rem;">
+        
+    </div>
+{% endblock  %}

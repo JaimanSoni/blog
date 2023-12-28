@@ -1,0 +1,22 @@
+{% extends "base_blog.html" %}
+{% block start %}
+
+<div class="container">
+  <center>
+    <h1 class="my-4">Welcome to the Blog App</h1>
+  </center>
+  {% for blog in blogs %}
+  <div class="card my-4 p-3" style="width: 80rem;">
+      <img class="card-img-top mx-auto" src="media/{{blog.image}}" alt="Card image cap" style="height:500px; width:70rem;">
+      <div class="card-body">
+          <h2 class="card-title m-3">{{blog.title}}</h2>
+          <p class="card-text h5 m-3">{{blog.description|slice:500}}...</p>
+          <form class="container " method = "GET" action="your-blogs/{{blog.id}}"style="display:inline;">   
+          <button type="submit" class="btn btn-success mt-4">Open Blog</button>                    
+          </form>
+      </div>
+  </div>
+  {% endfor %}
+  </div>
+
+{% endblock  %}

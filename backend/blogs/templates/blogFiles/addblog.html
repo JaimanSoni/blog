@@ -1,0 +1,22 @@
+{% extends "base_blog.html" %}
+{% block start %}
+
+<form class="container card col-6 p-3 my-4  " method="POST" enctype="multipart/form-data">
+      <h1 class="mx-auto my-1">Create a Blog</h1>
+    {% csrf_token %}
+    <div class="form-group  ">
+      <label for="exampleInputEmail1">Title</label>
+      <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your blog's title">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <textarea rows="10" class="form-control" id="exampleFormControlTextarea1" name="description" rows="3">Your blog's description</textarea>
+      </div>
+      <div class="form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Upload Image</label>
+        <input type="file" name="image" class="form-control" id="">
+      </div>  
+    <button type="submit" class="btn btn-success">Create</button>
+  </form>
+
+{% endblock  %}
